@@ -14,13 +14,19 @@ import java.util.List;
 
 public class ImagePanel extends JPanel {
     private MyImage myImage;
-    private int startX, startY, endX, endY, existX, existY;
+    private int startX, startY, endX, endY, existX, existY, nowX, nowY;
     public boolean isDraw;
     private List<Annotation> annotations = new ArrayList<>();
+    private JSONArray categoryList = new JSONArray();
+    private JSONArray relList = new JSONArray();
+    private JSONArray relArray = new JSONArray();
     private Category category;
 
     public ImagePanel(MyImage myImage) {
+
         this.myImage = myImage;
+        this.relList = JsonUtil.relObject.getJSONArray("rel_categories");
+        this.categoryList = JsonUtil.trainObject.getJSONArray("categories");
         this.annotations = JsonUtil.getAnnotationsById(this.myImage.getId());
         this.setSize((int)myImage.getRelWidth(), (int)myImage.getRelHeight());
         this.startX = 0;
@@ -33,9 +39,10 @@ public class ImagePanel extends JPanel {
 
 
         JSONArray imageArray = JsonUtil.trainObject.getJSONArray("images");
-        for (int i = 0; i < imageArray.size()-1; i++) {
-            this.nextImage(ImageLoader.readNextImage(),false);
-        }
+//        for (int i = 0; i < imageArray.size()-1; i++) {
+//            this.nextImage(ImageLoader.readNextImage(),false);
+//        }
+        this.nextImage(ImageLoader.loadImageByIndex(imageArray.size()-1), false);
         if(imageArray.size() > myImage.getId()){return;}
         JSONObject imageObject = new JSONObject();
         imageObject.put("file_name", myImage.getFile_name());
@@ -109,6 +116,12 @@ public class ImagePanel extends JPanel {
             //System.out.println("X:" + existX + "Y:" + existY);
             repaint();
         }
+        @Override
+        public void mouseMoved(MouseEvent e){
+            nowX = e.getX();
+            nowY = e.getY();
+            repaint();
+        }
     }
 
     @Override
@@ -120,6 +133,7 @@ public class ImagePanel extends JPanel {
 
         // 绘制框
         g.setColor(Color.RED);
+
         for(Annotation each : annotations){
             int x = (int)(each.getBbox()[0] * myImage.getIndex());
             int y = (int)(each.getBbox()[1] * myImage.getIndex());
@@ -129,8 +143,15 @@ public class ImagePanel extends JPanel {
             int height = Math.abs(n - y);
             g.drawRect(x, y, width, height);
             g.drawString(Integer.toString(each.getCategory_id()),x,y);
+
             g.drawString(Arrays.toString(each.getBbox()),m,n);
             g.drawString(Integer.toString(each.getArea()),m,y);
+            g.setColor(Color.CYAN);
+            g.setFont(new Font("宋体", Font.BOLD, 30));
+            g.drawString(categoryList.getJSONObject(each.getCategory_id()-1).getString("name"), x+10 ,y);
+            g.setFont(new Font("宋体", Font.PLAIN, 14));
+
+            g.setColor(Color.RED);
             //g.drawString(each.toString(),0,0);
         }
         if(isDraw){
@@ -144,14 +165,57 @@ public class ImagePanel extends JPanel {
             g.setFont(new Font("宋体",Font.BOLD, 30));
             g.drawString(category.getName(),x,y);
         }
+        if(!isDraw){
+            g.drawString(category.getName(), nowX, nowY);
+        }
+        if(relArray == null) return;
+        for (int i = 0; i < relArray.size(); i++) {
+            JSONArray rel = relArray.getJSONArray(i);
+            g.setColor(Color.GREEN);
+            Annotation startAnnotation = annotations.get((Integer) rel.get(0));
+            Annotation endAnnotation =  annotations.get((Integer) rel.get(1));
+            int startX = (int)(startAnnotation.getBbox()[0] * myImage.getIndex());
+            int startY = (int)(startAnnotation.getBbox()[1] * myImage.getIndex());
+            int endX = (int)(endAnnotation.getBbox()[0] * myImage.getIndex());
+            int endY = (int)(endAnnotation.getBbox()[1] * myImage.getIndex());
+            g.drawLine(startX,startY, endX, endY);
+            g.setColor(Color.MAGENTA);
+            g.setFont(new Font("宋体", Font.BOLD, 30));
+            g.drawString((String) this.relList.get((Integer) rel.get(2)), (startX+endX)/2, (startY+endY)/2);
+            g.setFont(new Font("宋体", Font.PLAIN, 14));
+        }
+        g.setColor(Color.RED);
     }
     public void deleteAnnotation(){
         if(this.annotations == null || this.annotations.isEmpty()) return;
         JSONArray annotationsArray = JsonUtil.trainObject.getJSONArray("annotations");
-        annotationsArray.remove(annotationsArray.size()-1);
+
+
+        for (int i = 0; i < annotationsArray.size(); i++) {
+            if(annotationsArray.getJSONObject(i).getIntValue("id") == this.annotations.get(this.annotations.size()-1).getId()){
+                annotationsArray.remove(i);
+                break;
+            }
+        }
         JsonUtil.trainObject.put("annotations",annotationsArray);
         JsonUtil.setObject(JsonUtil.trainObject,"train.json");
+        JSONObject relTrain = JsonUtil.relObject.getJSONObject("train");
+        JSONArray relArray = relTrain.getJSONArray(Integer.toString(myImage.getId()));
+        if(relArray != null){
+            JSONArray newArray = new JSONArray();
+            for(int i = 0; i < relArray.size(); i++){
+                if((Integer) relArray.getJSONArray(i).get(0) != this.annotations.size()-1 && (Integer) relArray.getJSONArray(i).get(1) != this.annotations.size()-1){
+                    newArray.add(relArray.getJSONArray(i));
+                }
+            }
+            relTrain.put(Integer.toString(myImage.getId()), newArray);
+            JsonUtil.relObject.put("train", relTrain);
+            JsonUtil.setObject(JsonUtil.relObject, "rel.json");
+        }
+
+
         this.annotations.remove(this.annotations.size()-1);
+        this.refresh(myImage);
         repaint();
     }
     public void addAnnotation(Annotation annotation)
@@ -175,15 +239,32 @@ public class ImagePanel extends JPanel {
         JsonUtil.add(jsonObject, "annotations", "train.json");
         System.out.println(jsonObject.toJSONString());
     }
-
-
-    public void nextImage(MyImage myImage, boolean isSave) {
+    public void refresh(MyImage myImage){
         this.myImage = myImage;
+        this.relArray = JsonUtil.relObject.getJSONObject("train").getJSONArray(Integer.toString(myImage.getId()));
         this.setSize((int)myImage.getRelWidth(), (int)myImage.getRelHeight());
         annotations.clear();
         this.annotations = JsonUtil.getAnnotationsById(this.myImage.getId());
         this.repaint();
+    }
+    public void lastImage(MyImage myImage){
+        this.myImage = myImage;
+        this.relArray = JsonUtil.relObject.getJSONObject("train").getJSONArray(Integer.toString(myImage.getId()));
+        this.setSize((int)myImage.getRelWidth(), (int)myImage.getRelHeight());
+        annotations.clear();
+        this.annotations = JsonUtil.getAnnotationsById(this.myImage.getId());
+        this.repaint();
+    }
+    public void nextImage(MyImage myImage, boolean isSave) {
+        this.myImage = myImage;
+        this.relArray = JsonUtil.relObject.getJSONObject("train").getJSONArray(Integer.toString(myImage.getId()));
+        this.setSize((int)myImage.getRelWidth(), (int)myImage.getRelHeight());
+        annotations.clear();
+        this.annotations = JsonUtil.getAnnotationsById(this.myImage.getId());
+        this.repaint();
+
         if(!isSave) return;
+
         JSONObject imageObject = new JSONObject();
         imageObject.put("file_name", myImage.getFile_name());
         imageObject.put("height",myImage.getHeight());

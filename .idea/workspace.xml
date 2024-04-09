@@ -5,20 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb26414-cc0f-4302-956a-b282fad25b44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/Json/_rel.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/Json/_train.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Delete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Temp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Json/rel.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Json/rel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Json/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Json/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Json/train.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Json/train.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Json/val.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Json/val.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/categories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/categories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/rel_categories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/rel_categories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ImageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ImagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RelationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RelationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Rename.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rename.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +52,9 @@
     <setting file="file://$PROJECT_DIR$/src/main/resources/Json/train.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/Json/val.json" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -56,61 +70,80 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "F:/workspace/java-workspace/Label/resources/images",
+    "last_opened_file_path": "F:/workspace/java-workspace/Label",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "MavenSettings",
-    "two.files.diff.last.used.file": "F:/workspace/java-workspace/Label/src/main/resources/Json/train.json",
+    "two.files.diff.last.used.file": "F:/workspace/java-workspace/Label/resources/Json/train.json",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\workspace\java-workspace\Label\resources\images" />
+      <recent name="F:\workspace\java-workspace\Label\resources\Json" />
       <recent name="F:\workspace\java-workspace\Label\src\main\resources\Json" />
       <recent name="F:\workspace\java-workspace\Label\src\main\resources" />
       <recent name="F:\workspace\java-workspace\Label\src\main\java" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\workspace\java-workspace\Label\resources\Json" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Chcek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.Chcek" />
-      <module name="Label" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="Delete" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Delete" />
+      <module name="0" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Label" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="src.Main" />
-      <module name="Label" />
+      <module name="Label V2.0" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Label" />
+      <module name="0" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadJsonFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.ReadJsonFile" />
-      <module name="Label" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="ReadJsonFile (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ReadJsonFile" />
+      <module name="0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Rename" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Rename" />
+      <module name="0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Temp" />
+      <module name="Label V2.0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Label V2.0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Label V2.0" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -118,8 +151,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Chcek" />
-        <item itemvalue="Application.ReadJsonFile" />
+        <item itemvalue="Application.Rename" />
+        <item itemvalue="Application.ReadJsonFile (1)" />
+        <item itemvalue="Application.Delete" />
+        <item itemvalue="Application.Temp" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +172,15 @@
       <workItem from="1710914936886" duration="715000" />
       <workItem from="1711623845882" duration="7922000" />
       <workItem from="1711688330365" duration="14188000" />
-      <workItem from="1711856527196" duration="4513000" />
+      <workItem from="1711856527196" duration="7677000" />
+      <workItem from="1711970889505" duration="5188000" />
+      <workItem from="1712017174547" duration="2686000" />
+      <workItem from="1712120611357" duration="1488000" />
+      <workItem from="1712201081550" duration="2830000" />
+      <workItem from="1712298156780" duration="19281000" />
+      <workItem from="1712494286886" duration="623000" />
+      <workItem from="1712623187209" duration="747000" />
+      <workItem from="1712625696827" duration="13000" />
     </task>
     <servers />
   </component>

@@ -2,11 +2,11 @@
 import java.io.File;
 
 public class Rename {
-    private static int startIndex = 0;
+    private static int startIndex = 690;
     private static final int NUM_DIGITS = 6; // Number of digits for the file name
 
     public static void main(String[] args) {
-        File folder = new File("resources\\images");
+        File folder = new File("resources\\newimg");
         File[] listOfFiles = folder.listFiles();
         int count = startIndex;
 
